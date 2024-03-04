@@ -1,19 +1,20 @@
 import { useQuery } from "@apollo/client";
 import get_User from "../Queries/queries";
 
-import React from 'react'
 
+// fetching the data using apollo cliend and its methods
 function UserList() {
   const {loading, error, data}  = useQuery(get_User)
-  if (!data) return <p>No data available</p>;
+  // if (!data) return <p>No data available............</p>;
 
   if(loading) return <p>Loading...</p>
   if(error) return <p>Error: {error.message}</p>
+ 
     
-console.log("helloo data" , data)
+
     return(
         <div>
-      <h2>User List</h2>
+      <h2>User List using Apollo client </h2>
       <ul>
         {data.characters.results.map(results => (
           <li key={results.id}>
@@ -30,14 +31,9 @@ console.log("helloo data" , data)
           </li>
         ))}   */}
       </ul>
-      <img>
-        {
-
-        }
-      </img>
+     
     </div>
     )
-  
-}
+  }
 
 export default UserList
